@@ -66,9 +66,12 @@ function plot_graph(minX, maxX, ax)
         y_pos(i)= 2*cos(x_pos(i)) * exp(-2*x_pos(i));
     end
 
+    hold(ax, 'on');
+
     if ~isempty(x_neg)
-        plot(ax, x_neg, y_neg, 'b', 'LineWidth', 2);
-        hold(ax, 'on');
+        plot(ax,0,3*0 + sqrt(1-0*0), 'b', 'MarkerFaceColor', 'w','MarkerSize', 30);
+        plot(ax,x_neg, y_neg,'b', 'LineWidth', 2);
+
     end
 
     if ~isempty(x_pos)
