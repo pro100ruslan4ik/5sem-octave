@@ -25,5 +25,6 @@ function task_6_1()
     printf("Всего вызовов двух функций: %d\nВызовов первой функции %d\n", count_global, count_1);
     
     vector = vector(vector < 0);
-    vector = vector(end - max(length(vector) - 1, 4) : end)
+    vector = vector(end - min(length(vector) - 1, 4) : end)
+    printf("task_6_1\n");
 endfunction

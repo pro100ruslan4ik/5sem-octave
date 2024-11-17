@@ -43,4 +43,5 @@ function retvec = task_6_2 (inpvec)
 
     retvec = inpvec(inpvec < 0);
     retvec = retvec((end - min(length(retvec) - 1, 4)) : end)
+    printf("task_6_2\n");
 endfunction

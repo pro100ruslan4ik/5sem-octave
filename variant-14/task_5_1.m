@@ -20,8 +20,8 @@ fprintf(file_out, '\n\n');
 fprintf(file_out, 'ПРЕОБРАЗОВАННАЯ МАТРИЦА:\n');
 
 numbers_size = size(numbers)
-row_count = numbers_size(1)
-column_count = numbers_size(2)
+row_count = numbers_size(2)
+column_count = numbers_size(1)
 
 for k=1:row_count
     min_numbers(k) = numbers(1, k);

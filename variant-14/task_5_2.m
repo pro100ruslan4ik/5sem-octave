@@ -19,7 +19,28 @@ dlmwrite(file_out, numbers, '\t\t');
 fprintf(file_out, '\n\n');
 
 fprintf(file_out, 'ПРЕОБРАЗОВАННАЯ МАТРИЦА:\n');
-numbers(bsxfun(@eq, min(numbers), numbers)) = 0
+
+numbers_size = size(numbers)
+if numbers_size(1) == 1
+    numbers(numbers == min(numbers,[],1)) = 0
+else
+    numbers(numbers == min(numbers)) = 0
+endif
+%if isvector(numbers)
+%    numbers = zeros(1,numbers_size(2))
+%else 
+%    numbers(numbers == min(numbers)) = 0
+%endif 
+
+%if isvector(numbers)
+%    if isrow(numbers)
+%        numbers(numbers == min(reshape(numbers, 1, []))) = 0 
+%    else
+%        numbers(numbers == min(reshape(numbers, [], 1))) = 0
+%    end
+%else
+%    numbers(numbers == min(numbers)) = 0
+%endif
 
 dlmwrite(file_out,numbers, '\t\t');
 fclose(file_out);
