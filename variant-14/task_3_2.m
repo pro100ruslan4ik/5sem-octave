@@ -1,4 +1,4 @@
-numbers_2 = dlmread('task-3.txt');
+numbers_2 = dlmread('task_3in.txt');
 
 fprintf('\nИндекс\tЗначение 2 способ\n');
 

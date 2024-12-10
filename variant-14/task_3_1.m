@@ -1,4 +1,4 @@
-fid = fopen('task-3.txt', 'r');
+fid = fopen('task_3in.txt', 'r');
 
 numbers = fscanf(fid, '%f');
 
