@@ -1,14 +1,29 @@
-%3адание №4
-%Создать 2 варианта сценария для построения, оформления и вывода графика:
-%1. Один вариант должен использовать стандартный для обычных языков программирования подход с использованием операторов цикла и условных операторов для поэлементной обработки массивов.
-%2. Другой вариант должен использовать операцию формирования диапазона значений и расширенные возможности операций и функций Matlab по групповой обработке массивов.
-%3. Подобрать такие параметры вывода, которые позволяют лучше рассмотреть ход кривой графика
+## Copyright (C) 2024
+##
+## This program is free software: you can redistribute it and/or modify
+## it under the terms of the GNU General Public License as published by
+## the Free Software Foundation, either version 3 of the License, or
+## (at your option) any later version.
+##
+## This program is distributed in the hope that it will be useful,
+## but WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+## GNU General Public License for more details.
+##
+## You should have received a copy of the GNU General Public License
+## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-%y = 3x + sqrt(1+x^2) при x <= 0 и
-%y = 2cosx * exp(-2x), при x > 0
+## -*- texinfo -*-
+## @deftypefn {} {@var{retval} =} task_4_1 (@var{input1}, @var{input2})
+##
+## @seealso{}
+## @end deftypefn
 
-function task_4_2()
-    printf("Второй способ\n")
+## Author:  <ruslan@archlinux>
+## Created: 2024-12-23
+
+function task_4_1 
+    printf("Первый способ\n");
 
     f = figure('Position', [100, 100, 600, 400]);
     ax = axes('Parent', f, 'Position', [0.1, 0.3, 0.85, 0.65]);
@@ -58,20 +73,25 @@ function plot_graph(minX, maxX, ax)
     x_neg = x(x <= 0);
     x_pos = x(x >= 0);
 
-    y_neg = 3*x_neg + sqrt(1 + x_neg.^2);
-    y_pos = 2*cos(x_pos) .* exp(-2*x_pos);
+    for i = 1:length(x_neg)
+        y_neg(i) = 3*sin(x_neg(i)) - cos(x_neg(i))^2;
+    end
+
+    for i = 1:length(x_pos)
+        y_pos(i) = 3 * sqrt(1+x_pos(i)^2) / log(x_pos(i) + 5);
+    end
 
     hold(ax, 'on');
 
     if ~isempty(x_neg)
-        plot(ax,0,3*0 + sqrt(1-0*0), 'b', 'MarkerFaceColor', 'w','MarkerSize', 30);
-        plot(ax,x_neg, y_neg,'b', 'LineWidth', 2);
+        plot(ax,0,3*sin(0) - cos(0)^2, 'g', 'MarkerFaceColor', 'w','MarkerSize', 30);
+        plot(ax,x_neg, y_neg,'g', 'LineWidth', 2);
 
     end
 
     if ~isempty(x_pos)
-        plot(ax, x_pos, y_pos, 'r', 'LineWidth', 2);
-        plot(ax, 0, 2*cos(0) * exp(-2*0), 'ro', 'MarkerFaceColor', 'w', 'MarkerSize', 10);
+        plot(ax, x_pos, y_pos, 'g', 'LineWidth', 2);
+        plot(ax, 0, 3*sqrt(1 + 0^2) / log(0 + 5), 'go', 'MarkerFaceColor', 'w', 'MarkerSize', 10);
     end
 
 
@@ -81,4 +101,3 @@ function plot_graph(minX, maxX, ax)
     grid(ax, 'on');
     hold(ax, 'off');
 end
-
