@@ -8,7 +8,7 @@
 %y = 2cosx * exp(-2x), при x > 0
 
 function task_4_2()
-    printf("Второй способ\n")
+  printf("Второй способ\n")
 
     f = figure('Position', [100, 100, 600, 400]);
     ax = axes('Parent', f, 'Position', [0.1, 0.3, 0.85, 0.65]);
