@@ -100,4 +100,4 @@ function plot_graph(minX, maxX, ax)
     ylabel(ax, 'y');
     grid(ax, 'on');
     hold(ax, 'off');
-end
+end 
